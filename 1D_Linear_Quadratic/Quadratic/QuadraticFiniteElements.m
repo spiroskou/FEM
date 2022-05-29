@@ -20,7 +20,9 @@ f(x) = -(1-2*(2*x+cos(2*x)));    % fmass
  
 for i=1:3
     for j=1:3
+    
         ke(i,j) = int(diff(w(i),x)*diff(w(j),x)+w(i)*diff(w(j),x) -4* w(i)*w(j),x,0,h);
+        
     end
 end
 ke = vpa(subs(ke,h,he));
@@ -30,9 +32,6 @@ ke = vpa(subs(ke,h,he));
 K=QuadraticBarAssemble(K,ke,1,2,3);
 K=QuadraticBarAssemble(K,ke,3,4,5);
 K=QuadraticBarAssemble(K,ke,5,6,7);
-%K=QuadraticBarAssemble(K,ke,7,8,9);
-%K=QuadraticBarAssemble(K,ke,9,10,11);
-%K=QuadraticBarAssemble(K,ke,11,12,13);
 
 % ELEMENT FORCE VECTOR
 
@@ -176,6 +175,7 @@ hold off
 % FUNCTIONS NEEDED
 
 function y = QuadraticBarAssemble(K,k,i,j,m)
+
 K(i,i) = K(i,i) + k(1,1);
 K(i,j) = K(i,j) + k(1,2);
 K(i,m) = K(i,m) + k(1,3);
@@ -186,4 +186,5 @@ K(m,i) = K(m,i) + k(3,1);
 K(m,j) = K(m,j) + k(3,2);
 K(m,m) = K(m,m) + k(3,3);
 y = K;
+
 end
