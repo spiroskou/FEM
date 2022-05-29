@@ -34,10 +34,6 @@ K=LinearBarAssemble(K,ke,5,6);
 K=LinearBarAssemble(K,ke,6,7);
 K=LinearBarAssemble(K,ke,7,8);
 K=LinearBarAssemble(K,ke,8,9);
-% K=LinearBarAssemble(K,ke,9,10);
-% K=LinearBarAssemble(K,ke,10,11);
-% K=LinearBarAssemble(K,ke,11,12);
-% K=LinearBarAssemble(K,ke,12,13);
 
 % CALCULATE FORCE VECTOR OVER ELEMENT
 
@@ -170,12 +166,6 @@ for i=1:N
  % FUNCTIONS NEEDED
 
 function y = LinearBarAssemble(K,k,i,j)
-%LinearBarAssemble This function assembles the element stiffness
-% matrix k of the linear bar with nodes i and j
-% into the global stiffness matrix K.
-% This function returns the global stiffness
-% matrix K after the element stiffness matrix
-% k is assembled.
 K(i,i) = K(i,i) + k(1,1) ;
 K(i,j) = K(i,j) + k(1,2) ;
 K(j,i) = K(j,i) + k(2,1) ;
