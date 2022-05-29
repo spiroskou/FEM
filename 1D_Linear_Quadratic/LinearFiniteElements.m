@@ -19,7 +19,7 @@ f(x) = -(1-2*(2*x+cos(2*x)));    %%% fmass
 
 for i=1:2
     for j=1:2
-        ke(i,j) = int(diff(w(i),x)*diff(w(j),x)+w(i)*diff(w(j),x) -4* w(i)*w(j),x,0,h);
+        ke(i,j) = int(diff(w(i),x)*diff(w(j),x)+w(i)*diff(w(j),x)-4*w(i)*w(j),x,0,h);
     end
 end
 ke = vpa(subs(ke,h,he));
